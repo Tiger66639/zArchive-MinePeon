@@ -23,6 +23,9 @@ if ($settings['donateAmount'] > 0 and date('H') == 12) {
 	$donate = "/opt/minepeon/etc/miner.conf.donate";
 	$original = "/opt/minepeon/etc/miner.conf.orig";
 	
+	// Sleep for 60 secconds to avoid monitor scripts
+	sleep(30); 
+
 	echo "Start   Amount: ".$settings['donateAmount']."\n";
 
 	// Take your miner info and backup
