@@ -8,7 +8,7 @@
 dlname='libblkmaker_jansson-0.1.so.0'
 
 # Names of this library.
-library_names='libblkmaker_jansson-0.1.so.0.4.0 libblkmaker_jansson-0.1.so.0 libblkmaker_jansson-0.1.so'
+library_names='libblkmaker_jansson-0.1.so.0.4.1 libblkmaker_jansson-0.1.so.0 libblkmaker_jansson-0.1.so'
 
 # The name of the static archive.
 old_library=''
@@ -25,7 +25,7 @@ weak_library_names=''
 # Version information for libblkmaker_jansson-0.1.
 current=4
 age=4
-revision=0
+revision=1
 
 # Is this an already installed library?
 installed=yes
