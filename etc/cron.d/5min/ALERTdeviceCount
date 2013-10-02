@@ -13,41 +13,54 @@ $devs = $stats['DEVS'];
 
 $devcount = deviceCount($devs);
 
-if ($settings['devicesWarn'] == 0 and $settings['miningExpDev'] <> $devcount and $settings['donateActive'] == 0) {
+if(isset($argv[1])) {
 
-
-		// Send an email if the devices dont match and set the deviceWarn falt
-		
-		$message = "MinePeon Fault: " . $settings['alertDevice'] . ": Unexpected device count " . $devcount . " (Expected " . $settings['miningExpDev'] . ")";
-		
-		sendEmail($settings, $message, $message);
-
-		//  Set the warning flag
-	
-		$settings['devicesWarn'] = 1;
-		writeSettings($settings);
-	
-	
-} 
-
-if($settings['devicesWarn'] == 1 and $settings['miningExpDev'] == $devcount) {
-
-	$message = "MinePeon Fault: " . $settings['alertDevice'] . ": Unexpected device count recovered";
-		
-	sendEmail($settings, $message, $message);
-
-	// Clear the warning flag
-	$settings['devicesWarn'] = 0;
-	writeSettings($settings);
+	echo "Arg    : " . $argv[1] . "\n\r";
+	echo "Devices: " . $devcount . "\n\r";
+	echo "Enabled: " . $settings['devicesWarn'] . "\n\r";
+	echo "Expected: " . $settings['miningExpDev'] . "\n\r";
+        echo "Donating: " . $settings['donateActive'] . "\n\r";
 
 }
 
+if ($settings['alertEnable']) {
 
+
+	if ($settings['miningExpDev'] <> $devcount and $settings['donateActive'] == 0) {
+
+
+		// Send an email if the devices dont match and set the deviceWarn falt
+
+		$message = "MinePeon Fault: " . $settings['alertDevice'] . ": Unexpected device count " . $devcount . " (Expected " . $settings['miningExpDev'] . ")";
+
+		sendEmail($settings, $message, $message);
+
+		//  Set the warning flag
+
+		$settings['devicesWarn'] = 1;
+		writeSettings($settings);
+
+
+	} 
+
+	if($settings['devicesWarn'] == 1 and $settings['miningExpDev'] == $devcount) {
+
+		$message = "MinePeon Fault: " . $settings['alertDevice'] . ": Unexpected device count recovered";
+
+		sendEmail($settings, $message, $message);
+
+		// Clear the warning flag
+		$settings['devicesWarn'] = 0;
+		writeSettings($settings);
+
+	}
+
+}
 
 function deviceCount($devs) {
 
 	$devices = 0;
-	
+
 	foreach ($devs as $dev) {
 		if ($dev['MHS5s'] > 0) {
 			$devices++;
@@ -55,5 +68,5 @@ function deviceCount($devs) {
 	}
 
 	return $devices;
-	
+
 }
