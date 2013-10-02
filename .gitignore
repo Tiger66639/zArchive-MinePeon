@@ -1,0 +1,7 @@
+http/*
+src/*
+etc/miner.conf
+etc/timezone
+etc/uipassword
+etc/donation
+etc/uipassword
