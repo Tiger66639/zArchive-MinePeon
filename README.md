@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/Tiger66639/zArchive-MinePeon.svg)](https://travis-ci.org/Tiger66639/zArchive-MinePeon)
 The latest information, installation directions, full image download locations and FAQ are maintained and provided by MineForeman: http://minepeon.com/index.php/Main_Page
 
 The MinePeon Raspberry Pi directory /opt/minepeon is pulled from this repo
